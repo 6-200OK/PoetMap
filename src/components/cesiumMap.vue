@@ -4,6 +4,7 @@
 	</view>
 </template>
 <script module="Cesium" lang="renderjs">
+	import {CesiumToken} from '../config/index.js'
 	export default {
 		name: "cesiumMap",
 		data() {
@@ -25,11 +26,13 @@
 		},
 		methods: {
 			init_cesium_map() {
-				Cesium.Ion.defaultAccessToken =
-					'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyNDY1NmZiNS0wYmU1LTRkNTgtODA0Yi1jMzI0NGE4ZTA2ZjciLCJpZCI6NTc3ODksImlhdCI6MTYyMjYxNzA4OX0.1sRx-WfaOPxGx-ogkElxlWmbRwUa_8oiT9hQgsIvvjk';
+				Cesium.Ion.defaultAccessToken = CesiumToken;
 				this.mapViewer = new Cesium.Viewer('container', {
-					terrainProvider: Cesium.createWorldTerrain()
+					terrainProvider: Cesium.createWorldTerrain(),
+					infoBox: false,
 				});
+				this.mapViewer.scene.primitives.add(Cesium.createOsmBuildings());
+				window.mapViewer = this.mapViewer  //暴露mapViewer到全局，方便进行地图操作
 			}
 		}
 	}
