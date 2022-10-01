@@ -31,14 +31,14 @@ const goToPoint =  () => {
 <style>
 
 .content {
+	position: relative;
 	width: 100vw;
 	height: 100vh;
 }
 
 .search_poet {
-	top: 6em;
-	left: 5em;
 	position: absolute;
+	top: 6em;
 	z-index: 11;
 }
 
