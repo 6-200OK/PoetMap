@@ -1,10 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import { Search } from '@element-plus/icons-vue'
-import { ElButton, ElInput, ElRow, ElCol } from 'element-plus'
 import { getPoetInfo } from '../api/user'
 import { userStore } from '../stores/modules/user'
 import poetLife from './poetLife.vue'
+import { Search } from '@element-plus/icons-vue'
 
 const store = userStore();
 
@@ -22,7 +21,7 @@ const getInfo = async() => {
 </script>
 
 <template>
-  <div>
+  <div class="searchPoet">
     <el-row>
       <el-col>
         <el-input
@@ -44,4 +43,8 @@ const getInfo = async() => {
 </template>
 
 <style scoped>
+  .searchPoet {
+    width: 30vw;
+    height: 30vh;
+  }
 </style>

@@ -1,14 +1,14 @@
 import {
 	createSSRApp
 } from "vue";
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
 import App from "./App.vue";
 import { setupStore } from "./stores";
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 export function createApp() {
 	const app = createSSRApp(App);
-	app.use(ElementPlus),
-	setupStore(app)
+	setupStore(app),
+	app.use(ElementPlus)
 	return {
 		app,
 	};

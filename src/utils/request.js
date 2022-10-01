@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ElMessage as message } from "element-plus";
+import { ElMessage as message } from "element-plus"
 
 const service = axios.create({
   baseURL: "http://101.34.228.44:3000",

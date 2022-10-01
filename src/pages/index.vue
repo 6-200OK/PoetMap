@@ -38,7 +38,7 @@ const goToPoint =  () => {
 
 .search_poet {
 	position: absolute;
-	top: 6em;
+	top: 50px;
 	z-index: 11;
 }
 

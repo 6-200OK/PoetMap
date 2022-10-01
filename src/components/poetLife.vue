@@ -1,7 +1,7 @@
 <script setup>
-import { ElCard } from 'element-plus';
 import { userStore } from '../stores/modules/user';
 import { ref, computed } from 'vue';
+import MapUtil from '../utils/mapUtils.js'
 
 const store = userStore();
 
@@ -13,7 +13,12 @@ const poetLife = ref('李白（701年2月28日―762），字太白，号青莲�
 
 const count = ref(0);
 const load = () => {
-  count.value += 2
+  count.value += 2;
+}
+
+const goToPoint = (lon, lat) => {
+  MapUtil.flyToPoint(lon, lat);
+	MapUtil.addModel(lon, lat);
 }
 
 </script>
@@ -21,15 +26,13 @@ const load = () => {
 <template>
   <div v-show="poetInfo">
     <el-card>
-      <div>
-        <p class="poetLife">
-          {{poetLife}}
-        </p>
+      <div class="poetLife" :title="poetLife">
+        {{poetLife}}
       </div>
       <div>
         <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
           <li v-for="item in poetInfo" class="infinite-list-item">
-            {{item.year}}-{{item.Title}}
+            <el-button type="primary" plain @click="goToPoint(item.Longitude, item.Latitude)">{{item.year}}-{{item.Title}}</el-button>
           </li>
         </ul>
       </div>
@@ -39,27 +42,33 @@ const load = () => {
 
 <style scoped>
   .poetLife {
-    display: inline-block;
-    font-size: 1rem;
+    font-size: 1em;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .infinite-list {
-  height: 300px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.infinite-list .infinite-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  font-size: 1rem;
-  background: var(--el-color-primary-light-9);
-  margin: 10px;
-  color: var(--el-color-primary);
-}
-.infinite-list .infinite-list-item + .list-item {
-  margin-top: 10px;
-}
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .infinite-list .infinite-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 1em;
+    background: #fff;
+    margin: 10px;
+    color: var(--el-color-primary);
+  }
+  
+  .infinite-list .infinite-list-item + .list-item {
+    margin-top: 10px;
+  }
 </style>

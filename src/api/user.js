@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ElMessage as message, menuEmits } from "element-plus"
+import { ElMessage as message } from "element-plus"
 
 export async function getPoetInfo(poetName) {
   const res =  await axios.get(`http://101.34.228.44:3000/poet/getPoetCoors?poetName=${poetName}`)
