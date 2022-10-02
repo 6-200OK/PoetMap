@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { getPoetInfo } from '../api/user'
+import { getPoetInfo, getPoetIntro } from '../api/user'
 import { userStore } from '../stores/modules/user'
 import poetLife from './poetLife.vue'
 import { Search } from '@element-plus/icons-vue'
@@ -15,6 +15,8 @@ const isShow = ref(false);
 const getInfo = async() => {
   const obj = await getPoetInfo(poetName.value);
   store.setPoetInfo(obj);
+  const res = await getPoetIntro(poetName.value);
+  store.setPoetIntro(res[0].introduction);
   let coors = [];
   let yearTag = [];
   for(let item of obj){

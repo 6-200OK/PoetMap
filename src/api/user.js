@@ -11,3 +11,9 @@ export async function getPoetInfo(poetName) {
   }
   return res.data
 }
+
+export async function getPoetIntro(poetName) {
+  const res = await axios.get(`http://101.34.228.44:3000/poet/getPoetIntroduction?poetName=${poetName}`)
+  if (res.data)
+    return res.data
+}
