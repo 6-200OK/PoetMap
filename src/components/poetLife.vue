@@ -1,7 +1,7 @@
 <script setup>
 import { userStore } from '../stores/modules/user';
 import { ref, computed } from 'vue';
-import MapUtil from '../utils/mapUtils.js'
+import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
 const store = userStore();
 
@@ -17,8 +17,8 @@ const load = () => {
 }
 
 const goToPoint = (lon, lat) => {
-  MapUtil.flyToPoint(lon, lat);
-	MapUtil.addModel(lon, lat);
+  flyToPoint(lon, lat);
+  addModel(lon, lat);
 }
 
 </script>

@@ -4,6 +4,7 @@ import { getPoetInfo } from '../api/user'
 import { userStore } from '../stores/modules/user'
 import poetLife from './poetLife.vue'
 import { Search } from '@element-plus/icons-vue'
+import { drawPoetLine } from '../utils/mapUtils.js'
 
 const store = userStore();
 
@@ -14,6 +15,13 @@ const isShow = ref(false);
 const getInfo = async() => {
   const obj = await getPoetInfo(poetName.value);
   store.setPoetInfo(obj);
+  let coors = [];
+  let yearTag = [];
+  for(let item of obj){
+	coors.push([item.Longitude,item.Latitude]);
+	yearTag.push(item.year);
+  }
+  drawPoetLine(coors,yearTag);
   poetName.value = '';
   isShow.value = true;
 }

@@ -3,7 +3,7 @@
 		<searchPoet class="search_poet"/>
 		<view class="content">
 		<!-- 功能演示 -->
-		<!-- <button @click="goToPoint" style="
+	<!-- 	<button @click="goToPoint" style="
         z-index: 11;
         color: black;
         position: absolute;
@@ -20,11 +20,11 @@
 <script setup>
 import CeisumMap from "../components/cesiumMap.vue";
 import searchPoet from "../components/searchPoet.vue";
-import MapUtil from '../utils/mapUtils.js'
+import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
 const goToPoint =  () => {
-	MapUtil.flyToPoint(120, 30)
-	MapUtil.addModel(120, 30.1)
+	flyToPoint(120, 30)
+	addModel(120, 30.1)
 }
 </script>
 
