@@ -8,7 +8,7 @@ import { drawPoetLine } from '../utils/mapUtils.js'
 
 const store = userStore();
 
-const poetName = ref('');
+const poetName = ref('李白');
 
 const isShow = ref(false);
 
@@ -37,6 +37,7 @@ const getInfo = async() => {
         <el-input
           v-model="poetName"
           placeholder="请输入诗人的名字"
+		  @keyup.enter.native='getInfo()'
         >
           <template #append>
             <el-button :icon="Search" @click='getInfo()'/>

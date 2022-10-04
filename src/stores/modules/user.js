@@ -4,7 +4,8 @@ export const userStore = defineStore({
   id: "app-user",
   state: () => ({
     poetInfo: [],
-    introduction: ''
+    introduction: '',
+	currentAdressName: '',
   }),
   actions: {
     setPoetInfo(info) {
@@ -12,6 +13,9 @@ export const userStore = defineStore({
     },
     setPoetIntro(intro) {
       this.introduction = intro;
-    }
+    },
+	setCurrentAdressName(name){
+		this.currentAdressName = name;
+	}
   }
 })

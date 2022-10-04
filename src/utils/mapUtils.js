@@ -12,7 +12,7 @@ function generateGeojson(coors) {
 	}
 }
 
-function flyToPoint(lon, lat, heading = 0.0, pitch = -20.0, roll = 0, range = 6000, duration = 2.5) {
+function flyToPoint(lon, lat, heading = 0.0, pitch = -24.0, roll = 0, range = 6000, duration = 2.5) {
 	window.mapViewer.camera.flyTo({
 		destination: Cesium.Cartesian3.fromDegrees(lon, lat - 0.13, range),
 		orientation: {
@@ -39,9 +39,14 @@ function addModel(lon, lat) {
 	titles: [title1,title2,title3.....]
 	yearTag: [13-19,19-25,.....]
  */
+import {
+	colorList
+} from '../config/index.js';
 async function drawPoetLine(coors, yearTag) {
 	let coor_index = 0
 	let coors_format = []
+
+	let colorMap = {}
 	yearTag.forEach((yearItem, index) => {
 		if (!(index === 0 || yearItem === yearTag[index - 1])) {
 			coor_index += 1
@@ -50,16 +55,25 @@ async function drawPoetLine(coors, yearTag) {
 			coors_format[coor_index].push(coors[index])
 		} else {
 			coors_format[coor_index] = new Array(coors[index])
+			colorMap[yearItem] = colorList[coor_index]
 		}
 	})
 	let geojson_polyline = generateGeojson(coors_format)
 	let dataSource = await Cesium.GeoJsonDataSource.load(geojson_polyline, {
-		stroke: new Cesium.Color.fromCssColorString('#FFFFFF'),
-		strokeWidth: 3,
+		strokeWidth: 4,
 	})
 	let polyline_entities = dataSource.entities.values;
-	for (let polyline_entity of polyline_entities) {
-		polyline_entity.polyline.clampToGround = true;
+	// console.log(polyline_entities)
+	for (let i = 0; i < polyline_entities.length; i++) {
+		polyline_entities[i].polyline.material = new Cesium.ColorMaterialProperty(new Cesium.Color
+			.fromCssColorString(colorMap[yearTag[i]]))
+		polyline_entities[i].polyline.clampToGround = true;
+		// polyline_entity.polyline.color = new Cesium.Color.fromRandom();
+		// polyline_entity.polyline.shadows = 2
+		// polyline_entity.polyline.material = new Cesium.StripeMaterialProperty({
+		// 	offset: 10,
+		// 	repeat: 100
+		// })
 	}
 	window.mapViewer.dataSources.add(dataSource);
 }
