@@ -18,7 +18,8 @@ const load = () => {
   count.value += 2;
 }
 
-const goToPoint = (lon, lat) => {
+const goToPoint = (lon, lat,name) => {
+	store.setCurrentAdressName(name)
   flyToPoint(lon, lat);
   addModel(lon, lat);
 }
@@ -34,7 +35,7 @@ const goToPoint = (lon, lat) => {
       <div>
         <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
           <li v-for="item in poetInfo" class="infinite-list-item">
-            <el-button type="primary" plain @click="goToPoint(item.Longitude, item.Latitude)">{{item.year}}-{{item.Title}}</el-button>
+            <el-button type="primary" plain @click="goToPoint(item.Longitude, item.Latitude,item.Title)">{{item.year}}-{{item.Title}}</el-button>
           </li>
         </ul>
       </div>

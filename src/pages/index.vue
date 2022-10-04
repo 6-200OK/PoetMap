@@ -1,5 +1,6 @@
 <template>
 	<div class="app">
+		<TopBar class="topBar"></TopBar>
 		<searchPoet class="search_poet"/>
 		<view class="content">
 		<CeisumMap class="cesium_map"></CeisumMap>
@@ -10,6 +11,7 @@
 <script setup>
 import CeisumMap from "../components/cesiumMap.vue";
 import searchPoet from "../components/searchPoet.vue";
+import TopBar from '../components/topBar.vue'
 import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
 const goToPoint =  () => {
@@ -34,5 +36,9 @@ const goToPoint =  () => {
 
 .cesium_map {
 	z-index: 10;
+}
+.topBar{
+	z-index: 11;
+	position: absolute;
 }
 </style>
