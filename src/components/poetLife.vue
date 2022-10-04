@@ -1,19 +1,23 @@
 <script setup>
 import { userStore } from '../stores/modules/user';
-import { ref, computed, onMounted, defineProps } from 'vue';
+import { ref, computed } from 'vue';
 import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
 const store = userStore();
 
-const poetInfo = computed(() => {
-  return store.poetInfo;
-})
+// 每个地点的信息
+// const poetInfo = computed(() => {
+  // return store.poetInfo;
+// })
 
+// 诗人生平介绍
 const poetLife = computed(() => {
   return store.introduction;
 })
 
 const count = ref(0);
+
+// 无限滚动
 const load = () => {
   count.value += 2;
 }
@@ -26,18 +30,18 @@ const goToPoint = (lon, lat) => {
 </script>
 
 <template>
-  <div v-show="poetInfo">
+  <div v-show="poetLife">
     <el-card>
       <div class="poetLife" :title="poetLife">
         {{poetLife}}
       </div>
-      <div>
+      <!-- <div>
         <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
           <li v-for="item in poetInfo" class="infinite-list-item">
             <el-button type="primary" plain @click="goToPoint(item.Longitude, item.Latitude)">{{item.year}}-{{item.Title}}</el-button>
           </li>
         </ul>
-      </div>
+      </div> -->
     </el-card>
   </div>
 </template>
@@ -48,7 +52,7 @@ const goToPoint = (lon, lat) => {
     display: -webkit-box;
     text-overflow: ellipsis;
     word-break: break-all;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

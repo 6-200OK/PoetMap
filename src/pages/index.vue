@@ -12,20 +12,22 @@
       ">
 			click Me
 		</button> -->
-		<CeisumMap class="cesium_map"></CeisumMap>
-	</view>
+			<CeisumMap class="cesium_map"></CeisumMap>
+		</view>
+		<poetLocation class="poetLocation"/>
 	</div>
 </template>
 
 <script setup>
 import CeisumMap from "../components/cesiumMap.vue";
 import searchPoet from "../components/searchPoet.vue";
+import poetLocation from "../components/poetLocation.vue";
 import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
-const goToPoint =  () => {
-	flyToPoint(120, 30)
-	addModel(120, 30.1)
-}
+// const goToPoint =  () => {
+// 	flyToPoint(120, 30)
+// 	addModel(120, 30.1)
+// }
 </script>
 
 <style>
@@ -38,7 +40,14 @@ const goToPoint =  () => {
 
 .search_poet {
 	position: absolute;
-	top: 50px;
+	top: 100px;
+	z-index: 11;
+}
+
+.poetLocation {
+	position: absolute;
+	bottom: 50px;
+	right: 100px;
 	z-index: 11;
 }
 

@@ -20,8 +20,8 @@ const getInfo = async() => {
   let coors = [];
   let yearTag = [];
   for(let item of obj){
-	coors.push([item.Longitude,item.Latitude]);
-	yearTag.push(item.year);
+	  coors.push([item.Longitude,item.Latitude]);
+	  yearTag.push(item.year);
   }
   drawPoetLine(coors,yearTag);
   poetName.value = '';
