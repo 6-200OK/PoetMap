@@ -47,9 +47,8 @@ import { flyToPoint, addModel } from '../utils/mapUtils.js'
 }
 
 .poetLocation {
-	position: absolute;
-	bottom: 50px;
-	right: 100px;
+	position: fixed;
+	top: 400px;
 	z-index: 11;
 }
 

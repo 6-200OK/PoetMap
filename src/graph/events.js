@@ -14,9 +14,12 @@ export default config => selection => {
     .on('click', onEventClick)
 
   g.append('rect')
-    .attr('width', d => d.end ? timeScale(d.end) - timeScale(d.start) : 10)
+    .attr('width', d => {
+      // console.log(timeScale(d.end));
+      return d.end ? Math.abs(timeScale(d.end) - timeScale(d.start)) : 10
+    })
     .attr('height', 20)
-    .attr('fill', 'rgba(85, 187, 238, 0.2)')
+    .attr('fill', 'rgb(135, 206, 250)')
     .attr('ry', 6)
 
   g.append('text')

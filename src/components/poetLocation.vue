@@ -28,10 +28,14 @@ const events = ref([{
 
 <template>
   <div v-if="isShow">
-    <VueTimeline :data="events" />
+    <VueTimeline :data="events" class="timeline"/>
   </div>
 </template>
 
-<style>
+<style scoped>
+  .timeline {
+    width: 100vw;
+    height: 100vh;
+  }
 
 </style>
