@@ -2,16 +2,6 @@
 	<div class="app">
 		<searchPoet class="search_poet"/>
 		<view class="content">
-		<!-- 功能演示 -->
-	<!-- 	<button @click="goToPoint" style="
-        z-index: 11;
-        color: black;
-        position: absolute;
-        top: 100px;
-        left: 100px;
-      ">
-			click Me
-		</button> -->
 		<CeisumMap class="cesium_map"></CeisumMap>
 	</view>
 	</div>
