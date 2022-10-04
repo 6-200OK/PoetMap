@@ -3,7 +3,6 @@
 		<TopBar class="topBar"></TopBar>
 		<searchPoet class="search_poet"/>
 		<view class="content">
-<<<<<<< HEAD
 		<!-- 功能演示 -->
 	<!-- 	<button @click="goToPoint" style="
         z-index: 11;
@@ -17,21 +16,14 @@
 			<CeisumMap class="cesium_map"></CeisumMap>
 		</view>
 		<poetLocation class="poetLocation"/>
-=======
-		<CeisumMap class="cesium_map"></CeisumMap>
-	</view>
->>>>>>> origin/dev
 	</div>
 </template>
 
 <script setup>
 import CeisumMap from "../components/cesiumMap.vue";
 import searchPoet from "../components/searchPoet.vue";
-<<<<<<< HEAD
 import poetLocation from "../components/poetLocation.vue";
-=======
 import TopBar from '../components/topBar.vue'
->>>>>>> origin/dev
 import { flyToPoint, addModel } from '../utils/mapUtils.js'
 
 // const goToPoint =  () => {
