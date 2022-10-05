@@ -3,8 +3,8 @@ import { computed } from 'vue';
 import { userStore } from '../stores/modules/user';
 const store = userStore();
 
-const currentAdressName = computed(()=>{
-	return store.currentAdressName;
+const currentPointInfo = computed(()=>{
+	return store.currentPointInfo;
 })
 </script>
 <template>
@@ -14,7 +14,7 @@ const currentAdressName = computed(()=>{
 		<img src="../static/topbar.png" alt="">
 	</div>
 	<div class="currentInfo">
-		<h1 class="currentAdressName">{{currentAdressName}}</h1>
+		<h1 class="currentAdressName">{{currentPointInfo?.name}}</h1>
 	</div>
 </div>
 	

@@ -5,7 +5,7 @@ export const userStore = defineStore({
   state: () => ({
     poetInfo: [],
     introduction: '',
-	currentAdressName: '',
+	  currentPointInfo: '',
   }),
   actions: {
     setPoetInfo(info) {
@@ -14,8 +14,8 @@ export const userStore = defineStore({
     setPoetIntro(intro) {
       this.introduction = intro;
     },
-	setCurrentAdressName(name){
-		this.currentAdressName = name;
+	setCurrentAdressName(pointInfo){
+		this.currentPointInfo = pointInfo;
 	}
   }
 })
