@@ -32,6 +32,8 @@ export default (config) => selection => {
     .append('g')
     .attr('transform', `translate(0, ${height + 5})`)
     .classed('axe', true)
+    .style('stroke-width', 1)
+    .style('stroke', 'white')
     .call(ay)
 
   axe.call(ay)

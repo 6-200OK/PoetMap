@@ -18,7 +18,6 @@ export default (config) => selection => {
     .attr('y1', 0)
     .attr('x2', 0)
     .attr('y2', height)
-    .attr('stroke', 'red')
-
+  
   cursor.attr('transform', `translate(${now})`)
 }

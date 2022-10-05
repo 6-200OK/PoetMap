@@ -10,6 +10,7 @@ export default (config) => {
   function init(selection) {
     // console.log('timeline init')
     selection.selectAll('svg').remove()
+    
 
     let data = selection.data()
 

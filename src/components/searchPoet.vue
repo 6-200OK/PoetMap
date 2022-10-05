@@ -53,9 +53,8 @@ const getInfo = async() => {
   </div>
 </template>
 
-<style scoped>
-  .searchPoet {
-    width: 30vw;
-    height: 30vh;
-  }
+<style scoped lang="sass">
+  .searchPoet
+    width: 30vw
+    height: 30vh
 </style>

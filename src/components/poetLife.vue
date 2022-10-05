@@ -36,46 +36,17 @@ const goToPoint = (lon, lat,name) => {
       <div class="poetLife" :title="poetLife">
         {{poetLife}}
       </div>
-      <!-- <div>
-        <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
-          <li v-for="item in poetInfo" class="infinite-list-item">
-            <el-button type="primary" plain @click="goToPoint(item.Longitude, item.Latitude,item.Title)">{{item.year}}-{{item.Title}}</el-button>
-          </li>
-        </ul>
-      </div> -->
     </el-card>
   </div>
 </template>
 
-<style scoped>
-  .poetLife {
-    font-size: 1em;
-    display: -webkit-box;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .infinite-list {
-    height: 300px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .infinite-list .infinite-list-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    font-size: 1em;
-    background: #fff;
-    margin: 10px;
-    color: var(--el-color-primary);
-  }
-  
-  .infinite-list .infinite-list-item + .list-item {
-    margin-top: 10px;
-  }
+<style scoped lang="sass">
+  .poetLife
+    font-size: 1em
+    display: -webkit-box
+    text-overflow: ellipsis
+    word-break: break-all
+    -webkit-line-clamp: 10
+    -webkit-box-orient: vertical
+    overflow: hidden
 </style>

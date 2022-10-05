@@ -10,18 +10,20 @@ const poetInfo = computed(() => { return store.poetInfo });
 
 const isShow = computed(() => { return poetInfo ? true : false });
 
+console.log(new Date(701, 1, 1));
+
 const events = ref([{
-  name: "event 1",
-  start: new Date(2020, 1, 1),
-  end: new Date(2020, 2, 4),
+  name: "三台",
+  start: new Date(701, 1, 1),
+  end: new Date(706, 2, 4),
 }, {
-  name: "event 2",
-  start: new Date(2020, 2, 2),
-  end: new Date(2020, 3, 5),
+  name: "剑阁",
+  start: new Date(706, 2, 4),
+  end: new Date(710, 3, 5),
 }, {
-  name: "event 3",
-  start: new Date(2020, 2, 3),
-  end: new Date(2020, 5, 10),
+  name: "江油",
+  start: new Date(710, 3, 6),
+  end: new Date(719, 5, 10),
 }])
 
 </script>
@@ -32,10 +34,9 @@ const events = ref([{
   </div>
 </template>
 
-<style scoped>
-  .timeline {
-    width: 100vw;
-    height: 100vh;
-  }
+<style scoped lang="sass">
+  .timeline
+    width: 100vw
+    height: 100vh
 
 </style>
