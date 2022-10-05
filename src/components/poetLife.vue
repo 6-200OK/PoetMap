@@ -23,7 +23,9 @@ const load = () => {
 }
 
 const goToPoint = (lon, lat,name) => {
-	store.setCurrentAdressName(name)
+	store.setCurrentAdressName({
+    lon,lat,name
+  })
   flyToPoint(lon, lat);
   addModel(lon, lat);
 }

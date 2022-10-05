@@ -9,10 +9,10 @@
 		cesium_css_url,
 		cesiumJS_url,
 		tiandiMap_cva_url
-	} from '../config/index.js'
+	} from '../config/index.js';
 	import {
 		flyToPoint
-	} from '../utils/mapUtils.js'
+	} from '../utils/mapUtils.js';
 	export default {
 		name: "cesiumMap",
 		data() {
@@ -55,7 +55,7 @@
 				// this.mapViewer.scene.primitives.add(Cesium.createOsmBuildings());
 				window.mapViewer = this.mapViewer; //暴露mapViewer到全局，方便进行地图操作
 				flyToPoint(110, 18, 0, -60, 0, 1950000);
-			}
+			},
 		}
 	}
 </script>
@@ -70,7 +70,7 @@
 		width: 100%;
 		height: 100%;
 	}
-
+	
 	/deep/ .cesium-viewer-bottom {
 		display: none;
 	}
