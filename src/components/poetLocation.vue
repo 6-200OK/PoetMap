@@ -38,5 +38,6 @@ const events = ref([{
   .timeline
     width: 100vw
     height: 100vh
+    opacity: 75%
 
 </style>

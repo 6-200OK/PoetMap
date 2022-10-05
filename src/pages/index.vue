@@ -29,6 +29,7 @@ $z-index-data: 11
 	position: absolute
 	top: 100px
 	z-index: $z-index-data
+	opacity: 60%
 
 .poetLocation
 	position: fixed
