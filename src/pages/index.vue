@@ -27,7 +27,7 @@ $z-index-data: 11
 
 .search_poet
 	position: absolute
-	top: 100px
+	top: 20%
 	z-index: $z-index-data
 	opacity: 60%
 

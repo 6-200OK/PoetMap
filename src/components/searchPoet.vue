@@ -39,13 +39,14 @@ const getInfo = async() => {
 </script>
 
 <template>
-  <div class="searchPoet">
+  <div>
     <el-row>
       <el-col>
         <el-input
           v-model="poetName"
           placeholder="请输入诗人的名字"
 		      @keyup.enter.native='getInfo()'
+          class=""
         >
           <template #append>
             <el-button :icon="Search" @click='getInfo()'/>
@@ -62,7 +63,6 @@ const getInfo = async() => {
 </template>
 
 <style scoped lang="sass">
-  .searchPoet
-    width: 30vw
-    height: 30vh
+  .el-input__inner
+    width: 50%
 </style>
