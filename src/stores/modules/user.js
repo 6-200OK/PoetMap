@@ -14,8 +14,8 @@ export const userStore = defineStore({
     setPoetIntro(intro) {
       this.introduction = intro;
     },
-	setCurrentAdressName(pointInfo){
-		this.currentPointInfo = pointInfo;
-	}
+	  setCurrentAdressName(pointInfo){
+		  this.currentPointInfo = pointInfo;
+	  }
   }
 })

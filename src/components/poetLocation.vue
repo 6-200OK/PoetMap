@@ -1,30 +1,33 @@
 <script setup>
 
 import { userStore } from '../stores/modules/user';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import VueTimeline from './VueTimeline.vue';
 
 const store = userStore();
 
 const poetInfo = computed(() => { return store.poetInfo });
 
-const isShow = computed(() => { return poetInfo ? true : false });
+const events = computed(() => {
+  const arr = [];
 
-console.log(new Date(701, 1, 1));
+  for (const item of poetInfo.value) {
+    const obj = {
+      name: '',
+      start: null,
+      end: null
+    };
+    const start = item.start.replace('{', '').replace('}', '').split(',').map(Number) ;
+    const end = item.end.replace('{', '').replace('}', '').split(',').map(Number);
+    obj.name = item.Title;
+    obj.start = new Date(start[0], start[1], start[2]);
+    obj.end = new Date(end[0], end[1], end[2]);
+    arr.push(obj);
+  }
+  return arr;
+})
 
-const events = ref([{
-  name: "三台",
-  start: new Date(701, 1, 1),
-  end: new Date(706, 2, 4),
-}, {
-  name: "剑阁",
-  start: new Date(706, 2, 4),
-  end: new Date(710, 3, 5),
-}, {
-  name: "江油",
-  start: new Date(710, 3, 6),
-  end: new Date(719, 5, 10),
-}])
+const isShow = computed(() => { return events.value.length > 0 ? true : false });
 
 </script>
 

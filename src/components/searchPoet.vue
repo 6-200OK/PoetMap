@@ -4,13 +4,21 @@ import { getPoetInfo, getPoetIntro } from '../api/user'
 import { userStore } from '../stores/modules/user'
 import poetLife from './poetLife.vue'
 import { Search } from '@element-plus/icons-vue'
-import { drawPoetLine } from '../utils/mapUtils.js'
+import { drawPoetLine, flyToPoint, addModel } from '../utils/mapUtils.js'
 
 const store = userStore();
 
-const poetName = ref('李白');
+const poetName = ref('');
 
 const isShow = ref(false);
+
+const goToPoint =  () => {
+  const poetInfo = store.poetInfo;
+  for (const item of poetInfo) {
+    flyToPoint(item.Latitude, item.Longitude);
+    addModel(item.Latitude, item.Longitude);
+  }
+}
 
 const getInfo = async() => {
   const obj = await getPoetInfo(poetName.value);
@@ -37,7 +45,7 @@ const getInfo = async() => {
         <el-input
           v-model="poetName"
           placeholder="请输入诗人的名字"
-		  @keyup.enter.native='getInfo()'
+		      @keyup.enter.native='getInfo()'
         >
           <template #append>
             <el-button :icon="Search" @click='getInfo()'/>
