@@ -33,7 +33,7 @@ $z-index-data: 11
 
 .poetLocation
 	position: fixed
-	top: 400px
+	top: 55%
 	z-index: $z-index-data
 
 .cesium_map
