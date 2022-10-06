@@ -61,10 +61,24 @@ PoetMap
 ```
 ### 项目启动说明
 - npm方式启动
-npm install 安装项目相关依赖
-npm run dev:h5 在web界面运行项目
+1. 安装项目相关依赖
+```bash
+npm install
+```
+2. 在web界面运行项目
+```bash
+npm run dev:h5
+```
+
 - yarn方式启动
+```bash
 yarn run dev:h5
+```
+
+- pnpm方式启动
+```bash
+pnpm dev:h5
+```
 ### 项目体验地址
 ### 环境准备
 - NodeJS: v16.17.1
