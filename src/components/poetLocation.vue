@@ -15,13 +15,19 @@ const events = computed(() => {
     const obj = {
       name: '',
       start: null,
-      end: null
+      end: null,
+      lon: null,
+      lat: null,
+      year: null
     };
     const start = item.start.replace('{', '').replace('}', '').split(',').map(Number) ;
     const end = item.end.replace('{', '').replace('}', '').split(',').map(Number);
     obj.name = item.Title;
     obj.start = new Date(start[0], start[1], start[2]);
     obj.end = new Date(end[0], end[1], end[2]);
+    obj.lon = item.Longitude
+    obj.lat = item.Latitude
+    obj.year = item.year
     arr.push(obj);
   }
   return arr;

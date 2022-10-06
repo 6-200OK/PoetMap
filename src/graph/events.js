@@ -1,3 +1,5 @@
+import { flyToPoint, addModel } from '../utils/mapUtils'
+
 export default config => selection => {
   let {
     timeScale,
@@ -25,12 +27,18 @@ export default config => selection => {
   g.append('text')
     .attr('dy', '1em')
     .style('pointer-events', 'none')
-    .text(d => d.name)
+    .text(d => d.name + d.year)
 
+    const click = (lon, lat) => {
+      // console.log(`(${lon},${lat})`);
+      flyToPoint(lon, lat)
+      addModel(lon, lat)
+    }
 
   events
     .attr('transform', d => `translate(${timeScale(d.start)} ${d.position * 22})`)
     .selectAll('rect')
     .attr('width', d => d.end ? timeScale(d.end) - timeScale(d.start) : 10)
+    .on('click', d => click(d.target.__data__.lon, d.target.__data__.lat))
 
 }
