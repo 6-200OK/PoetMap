@@ -33,12 +33,16 @@
 			document.head.appendChild(script);
 		},
 		methods: {
+			// 初始化cesium地图
 			init_cesium_map() {
+				// 申请cesium密钥
 				Cesium.Ion.defaultAccessToken = CesiumToken;
+				// 初始化Cesim三维地球查看器函数Viewer
 				this.mapViewer = new Cesium.Viewer('container', {
 					terrainProvider: Cesium.createWorldTerrain(),
 					infoBox: false,
 				});
+				// 加载Web Tile Service服务
 				let cva = new Cesium.WebMapTileServiceImageryProvider({
 					url: tiandiMap_cva_url,
 					layer: "cva_w",
@@ -59,7 +63,7 @@
 		}
 	}
 </script>
-
+<!-- 设cesium content相关样式 -->
 <style scoped lang="less">
 	.map_content {
 		width: 100vw;

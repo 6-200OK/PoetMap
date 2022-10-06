@@ -42,5 +42,4 @@ const isShow = computed(() => { return events.value.length > 0 ? true : false })
     width: 100vw
     height: 100vh
     opacity: 75%
-
 </style>
