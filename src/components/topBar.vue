@@ -89,13 +89,13 @@ const stop = ()=>{
 .bar img{
 	width: 26vw;
 	margin-left: 38vw;
-	height: 17vh;
+	height: 15vh;
 	margin-top: -1.5vh;
 }
 .bar .title{
 	position: absolute;
 	left: 44vw;
-	top: 4vh;
+	top: 3vh;
 	font-size: 90rpx;
 	font-family: 'FZJT', Times, serif;
 }
@@ -104,8 +104,8 @@ const stop = ()=>{
 	margin-left: 45vw;
 	color: white;
 	text-align: center;
-	margin-top: 6vh;
+	margin-top: 8.5vh;
 	font-family: cursive;
-	font-size: 40rpx;
+	font-size: 35rpx;
 }
 </style>

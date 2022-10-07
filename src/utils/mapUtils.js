@@ -23,12 +23,12 @@ function flyToPoint(lon, lat, heading = 0.0, pitch = -24.0, roll = 0, range = 60
 		duration: duration,
 	});
 }
-
+import {model_url} from '../config/index.js'
 function addModel(lon, lat) {
 	let modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(
 		Cesium.Cartesian3.fromDegrees(lon, lat, Cesium.HeightReference.NONE));
 	window.mapViewer.scene.primitives.add(Cesium.Model.fromGltf({
-		url: '../static/models/model.gltf',
+		url: model_url,
 		modelMatrix: modelMatrix,
 		scale: 1.6
 	}));
