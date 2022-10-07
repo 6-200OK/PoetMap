@@ -72,16 +72,24 @@ const stop = ()=>{
 	<div class="currentInfo">
 		<h1 class="currentAdressName">{{currentPointInfo?.name}}</h1>
 	</div>
-	<div class="palyContainer">
-		<el-button :icon="CaretLeft" @click='goBack()' :disabled="currentPointInfo.playIndex === 0"/>
-		<el-button :icon="VideoPlay" @click='play()' v-if="isPlay" style="color: lightgreen;" :disabled="currentPointInfo.playIndex === store.poetInfo.length-1"/>
-		<el-button :icon="VideoPlay" style="color: red;" @click='stop()' v-else/>
-		<el-button :icon="CaretRight" @click='goNext()' :disabled="currentPointInfo.playIndex === store.poetInfo.length-1"/>
+	<div class="palyContainer" v-if="currentPointInfo">
+		<el-button  @click='goBack()' :disabled="currentPointInfo.playIndex === 0" class="back_btn">
+			<template #icon>
+				<img src="../static/next.png" alt="">
+			</template>
+		</el-button>
+		<el-button class="play" :icon="VideoPlay" @click='play()' v-if="isPlay" style="color: lightgreen;" :disabled="currentPointInfo.playIndex === store.poetInfo.length-1" round/>
+		<el-button class="play" :icon="VideoPlay" style="color: red;" @click='stop()' v-else round/>
+		<el-button  @click='goNext()' :disabled="currentPointInfo.playIndex === store.poetInfo.length-1" class="next_btn">
+			<template #icon>
+				<img src="../static/next.png" alt="">
+			</template>
+		</el-button>
 	</div>
 </div>
 	
 </template>
-<style scoped>
+<style scoped lang="less">
 .bar{
 	width: 100vw;
 	height: 4vh;
@@ -107,5 +115,35 @@ const stop = ()=>{
 	margin-top: 8.5vh;
 	font-family: cursive;
 	font-size: 35rpx;
+}
+.back_btn{
+	background: transparent;
+	border: 0;
+	position: absolute;
+	left: 35vw;
+	top: 17%;
+}
+.back_btn img,.next_btn img{
+	width: 4.5vw;
+	height: 4.5vw;
+	position: absolute;
+	top: -140%;
+}
+.next_btn{
+	background: transparent;
+	border: 0;
+	position: absolute;
+	left: 64vw;
+	top: 17%;
+}
+.play{
+	// background: transparent;
+	border: 0;
+	border-radius: 100px;
+	width: 26px;
+	height: 26px;
+}
+/deep/ .el-icon {
+	font-size: 25px;
 }
 </style>
