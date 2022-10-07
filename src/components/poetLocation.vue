@@ -18,7 +18,8 @@ const events = computed(() => {
       end: null,
       lon: null,
       lat: null,
-      year: null
+      year: null,
+	  index: null
     };
     const start = item.start.replace('{', '').replace('}', '').split(',').map(Number) ;
     const end = item.end.replace('{', '').replace('}', '').split(',').map(Number);
@@ -28,6 +29,7 @@ const events = computed(() => {
     obj.lon = item.Longitude
     obj.lat = item.Latitude
     obj.year = item.year
+	obj.index = item.index
     arr.push(obj);
   }
   return arr;

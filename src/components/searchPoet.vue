@@ -4,7 +4,7 @@ import { getPoetInfo, getPoetIntro } from '../api/user'
 import { userStore } from '../stores/modules/user'
 import poetLife from './poetLife.vue'
 import { Search } from '@element-plus/icons-vue'
-import { drawPoetLine, flyToPoint, addModel } from '../utils/mapUtils.js'
+import { drawPoetLine, flyToPoint, addModel,flyToHome } from '../utils/mapUtils.js'
 
 const store = userStore();
 
@@ -22,6 +22,9 @@ const goToPoint =  () => {
 
 const getInfo = async() => {
   const obj = await getPoetInfo(poetName.value);
+  obj.forEach((item,index)=>{
+	  item["index"] = index;
+  })
   store.setPoetInfo(obj);
   const res = await getPoetIntro(poetName.value);
   store.setPoetIntro(res[0].introduction);
@@ -34,6 +37,8 @@ const getInfo = async() => {
   drawPoetLine(coors,yearTag);
   poetName.value = '';
   isShow.value = true;
+  store.setCurrentAdressName('');
+  flyToHome();
 }
 
 </script>
