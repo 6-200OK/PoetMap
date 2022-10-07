@@ -67,7 +67,7 @@ const stop = ()=>{
 <div class="top">
 	<div class="bar">
 		<p class="title">寻踪·诗意盛唐</p>
-		<img src="../static/banner.png" alt="">
+		<!-- <img src="../static/banner.png" alt=""> -->
 	</div>
 	<div class="currentInfo">
 		<h1 class="currentAdressName">{{currentPointInfo?.name}}</h1>
@@ -104,11 +104,14 @@ const stop = ()=>{
 	margin-top: -1.5vh;
 }
 .bar .title{
-	position: absolute;
-	left: 44vw;
-	top: 3vh;
-	font-size: 45px;
+	// position: absolute;
+	// left: 44vw;
+	// top: 3vh;
+	font-size: 3rem;
+	text-align: center;
 	font-family: 'FZJT', Times, serif;
+	background: url(../static/banner.png) no-repeat top;
+	background-size: 30% 100%;
 }
 .currentInfo{
 	width: 40vw;
@@ -165,20 +168,21 @@ const stop = ()=>{
 }
 @media screen and (max-width: 500px) {
    .bar .title{
-   	position: absolute;
-   	width: 40vw;
-	left: 30vw;
-	text-align: center;
-   	top: 2vh;
-   	font-size: 1em;
+   	// position: absolute;
+   	// width: 40vw;
+		// left: 30vw;
+		text-align: center;
+   	// top: 2vh;
+   	font-size: 2em;
    	font-family: 'FZJT', Times, serif;
+		 background-size: 70% 100%;
    }
-   .bar img{
+   /* .bar img{
    	width: 30vw;
    	margin-left: 35vw;
    	height: 8vh;
    	margin-top: -1.5vh;
-   }
+   } */
    .currentInfo{
    	width: 40vw;
    	margin-left: 30vw;
