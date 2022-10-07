@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <TopBar class="topBar"></TopBar>
-    <searchPoet class="search_poet" />
+    <searchPoet class="search_poet" style="height: 10px;" />
     <view class="content">
       <CeisumMap class="cesium_map"></CeisumMap>
     </view>
@@ -30,7 +30,7 @@ $z-index-data: 11
 	top: 20%
 	z-index: $z-index-data
 	opacity: 60%
-
+	
 .poetLocation
 	position: fixed
 	top: 55%

@@ -1,8 +1,8 @@
 <script setup>
 import { computed,ref } from 'vue';
 import { userStore } from '../stores/modules/user';
-import { CaretLeft,CaretRight,VideoPlay } from '@element-plus/icons-vue';
-import { flyToPoint,showCurrentLine } from '../utils/mapUtils.js';
+import { VideoPlay,VideoPause,HomeFilled } from '@element-plus/icons-vue';
+import { flyToPoint,showCurrentLine,flyToHome } from '../utils/mapUtils.js';
 const store = userStore();
 
 const currentPointInfo = computed(()=>{
@@ -72,19 +72,22 @@ const stop = ()=>{
 	<div class="currentInfo">
 		<h1 class="currentAdressName">{{currentPointInfo?.name}}</h1>
 	</div>
-	<div class="palyContainer" v-if="currentPointInfo">
+	<div class="nextContainer" v-if="currentPointInfo">
 		<el-button  @click='goBack()' :disabled="currentPointInfo.playIndex === 0" class="back_btn">
 			<template #icon>
 				<img src="../static/next.png" alt="">
 			</template>
 		</el-button>
-		<el-button class="play" :icon="VideoPlay" @click='play()' v-if="isPlay" style="color: lightgreen;" :disabled="currentPointInfo.playIndex === store.poetInfo.length-1" round/>
-		<el-button class="play" :icon="VideoPlay" style="color: red;" @click='stop()' v-else round/>
 		<el-button  @click='goNext()' :disabled="currentPointInfo.playIndex === store.poetInfo.length-1" class="next_btn">
 			<template #icon>
 				<img src="../static/next.png" alt="">
 			</template>
 		</el-button>
+	</div>
+	<div class="palyContainer" v-if="currentPointInfo">
+		<el-button class="play" :icon="VideoPlay" @click='play()' v-if="isPlay" style="color: lightgreen;" :disabled="currentPointInfo.playIndex === store.poetInfo.length-1" round/>
+		<el-button class="play" :icon="VideoPause" style="color: red;" @click='stop()' v-else round/>
+		<el-button class="home" :icon="HomeFilled" @click="flyToHome" round></el-button>
 	</div>
 </div>
 	
@@ -104,18 +107,19 @@ const stop = ()=>{
 	position: absolute;
 	left: 44vw;
 	top: 3vh;
-	font-size: 90rpx;
+	font-size: 45px;
 	font-family: 'FZJT', Times, serif;
 }
 .currentInfo{
-	width: 10vw;
-	margin-left: 45vw;
+	width: 40vw;
+	margin-left: 30vw;
 	color: white;
 	text-align: center;
 	margin-top: 8.5vh;
 	font-family: cursive;
-	font-size: 35rpx;
+	font-size: 18px;
 }
+
 .back_btn{
 	background: transparent;
 	border: 0;
@@ -127,7 +131,7 @@ const stop = ()=>{
 	width: 4.5vw;
 	height: 4.5vw;
 	position: absolute;
-	top: -140%;
+	top: -300%;
 }
 .next_btn{
 	background: transparent;
@@ -137,13 +141,97 @@ const stop = ()=>{
 	top: 17%;
 }
 .play{
-	// background: transparent;
+	background: transparent;
 	border: 0;
-	border-radius: 100px;
+	// border-radius: 100px;
 	width: 26px;
 	height: 26px;
 }
-/deep/ .el-icon {
-	font-size: 25px;
+.palyContainer{
+	position: absolute;
+	top: 140%;
+	left: 2%;
+}
+.home{
+	width: 33px;
+	height: 33px;
+	font-size: 18px;
+	color: royalblue;
+	background-color: lightblue;
+	margin-left: 8px;
+}
+/deep/ .play {
+	font-size: 35px;
+}
+@media screen and (max-width: 500px) {
+   .bar .title{
+   	position: absolute;
+   	width: 40vw;
+	left: 30vw;
+	text-align: center;
+   	top: 2vh;
+   	font-size: 1em;
+   	font-family: 'FZJT', Times, serif;
+   }
+   .bar img{
+   	width: 30vw;
+   	margin-left: 35vw;
+   	height: 8vh;
+   	margin-top: -1.5vh;
+   }
+   .currentInfo{
+   	width: 40vw;
+   	margin-left: 30vw;
+   	color: white;
+   	text-align: center;
+   	margin-top: 6.5vh;
+   	font-family: cursive;
+   	font-size: 15px;
+   }
+   .back_btn{
+   	background: transparent;
+   	border: 0;
+   	position: absolute;
+   	left: 25vw;
+   	top: 17%;
+   }
+   
+   .back_btn img,.next_btn img{
+   	width: 50px;
+   	height: 50px;
+   	position: absolute;
+   	top: -250%;
+   }
+   .next_btn{
+   	background: transparent;
+   	border: 0;
+   	position: absolute;
+   	left: 61vw;
+   	top: 17%;
+   }
+   .play{
+   	background: transparent;
+   	border: 0;
+   	// border-radius: 100px;
+   	width: 26px;
+   	height: 26px;
+   }
+   .palyContainer{
+   	position: absolute;
+   	top: 165.5%;
+   	left: 9%;
+	z-index: 9999999;
+   }
+   .home{
+   	width: 33px;
+   	height: 33px;
+   	font-size: 18px;
+   	color: royalblue;
+   	background-color: lightblue;
+   	margin-left: 8px;
+   }
+   /deep/ .play {
+   	font-size: 37px;
+   }
 }
 </style>
