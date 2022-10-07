@@ -23,7 +23,7 @@ const poetLife = computed(() => {
       :content="poetLife"
       >
       <template #reference>
-        <el-button type="success" circle :icon="Pointer"></el-button>
+        <el-button type="warning" circle :icon="Pointer"></el-button>
       </template>
     </el-popover>
   </div>
