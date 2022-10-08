@@ -94,21 +94,26 @@ const stop = ()=>{
 </template>
 <style scoped lang="less">
 .bar{
-	width: 100vw;
-	height: 4vh;
+	// width: 100vw;
+	// height: 4vh;
+	width: 95rem;
+	height: 7.5rem;
+	margin-left: 5.5rem;
+	margin-top: -0.5rem;
 }
-.bar img{
-	width: 26vw;
-	margin-left: 38vw;
-	height: 15vh;
-	margin-top: -1.5vh;
-}
+// .bar img{
+// 	width: 26vw;
+// 	margin-left: 38vw;
+// 	height: 15vh;
+// 	margin-top: -1.5vh;
+// }
 .bar .title{
 	// position: absolute;
 	// left: 44vw;
 	// top: 3vh;
 	font-size: 3rem;
 	text-align: center;
+	line-height: 7.5rem;
 	font-family: 'FZJT', Times, serif;
 	background: url(../static/banner.png) no-repeat top;
 	background-size: 30% 100%;
@@ -152,7 +157,7 @@ const stop = ()=>{
 }
 .palyContainer{
 	position: absolute;
-	top: 125%;
+	top: 91%;
 	left: 3%;
 }
 .home{
@@ -167,15 +172,24 @@ const stop = ()=>{
 	font-size: 35px;
 }
 @media screen and (max-width: 500px) {
+	.bar{
+	// width: 100vw;
+	// height: 4vh;
+	width: 22rem;
+	height: 4rem;
+	// margin-left: 5.5rem;
+	
+	}	
    .bar .title{
    	// position: absolute;
    	// width: 40vw;
 		// left: 30vw;
-		text-align: center;
+	text-align: center;
    	// top: 2vh;
+	margin-left: -9rem;
    	font-size: 2em;
    	font-family: 'FZJT', Times, serif;
-		 background-size: 70% 100%;
+	background-size: 70% 100%;
    }
    /* .bar img{
    	width: 30vw;
@@ -222,9 +236,9 @@ const stop = ()=>{
    }
    .palyContainer{
    	position: absolute;
-   	top: 154%;
-   	left: 10%;
-		z-index: 9999999;
+   	top: 138%;
+   	left: 9%;
+	z-index: 9999999;
    }
    .home{
    	width: 33px;
