@@ -152,8 +152,8 @@ const stop = ()=>{
 }
 .palyContainer{
 	position: absolute;
-	top: 140%;
-	left: 2%;
+	top: 125%;
+	left: 3%;
 }
 .home{
 	width: 33px;
@@ -222,9 +222,9 @@ const stop = ()=>{
    }
    .palyContainer{
    	position: absolute;
-   	top: 165.5%;
-   	left: 9%;
-	z-index: 9999999;
+   	top: 154%;
+   	left: 10%;
+		z-index: 9999999;
    }
    .home{
    	width: 33px;
