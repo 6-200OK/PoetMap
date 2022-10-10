@@ -59,7 +59,7 @@ const getInfo = async() => {
         </el-input>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="second">
       <el-col>
         <poetLife v-show="isShow"/>
       </el-col>
@@ -70,4 +70,6 @@ const getInfo = async() => {
 <style scoped lang="sass">
   .el-input__inner
     width: 50%
+  .second
+    width: 10px
 </style>

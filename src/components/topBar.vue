@@ -56,7 +56,7 @@ const play = () => {
 			name: currentPoint.Title,
 			playIndex: currentPoint.index
 		})
-	}, 3300)
+	}, 8000)
 }
 const stop = () => {
 	isPlay.value = true;
